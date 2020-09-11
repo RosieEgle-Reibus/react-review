@@ -7,14 +7,19 @@ let city = {
   country: "Spain"
 }
 
+ let Hello = (props) => {
+   console.log(Object.keys(props).length)
+  return (
+  <div>
+  <h1>Welcome to the page of welcome!</h1>
+  <h2>{props.message}</h2>
+  <p>The place where unicorns rule!</p>
+  <p>Unicorns currently admitted: {props.number}</p>
+  </div>
+  )}
+
 ReactDOM.render(
-  <div><h1 id="heading" className="cool-text">Hello from {city.name}, {city.country}!</h1>
- <ul>
-   <li>Puppies</li>
-  <li> Unicorns</li>
-  <li>Rainbows!</li>
- </ul>
- </div>,
+<Hello library="React" message="Only Unicorns allowed!" number={3}/>,
   document.getElementById('root')
 );
 
