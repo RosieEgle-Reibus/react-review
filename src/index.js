@@ -2,28 +2,40 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-let lakeList = [
- {id: "1", name: "Echo", trailhead: "Echo"},
- {id: "2", name: "Maud", trailhead: "Wrights"},
- {id: "3", name: "Velma", trailhead: "Bayview"}
-
-]
-
-function App({lakes}) {
+let Lake = ({name}) => {
   return (
+    <h1>Visit {name}!</h1>
+  )
+}
+
+let SkiResort = ({name}) => {
+  return (
+    <h1>Visit {name}!</h1>
+  )
+}
+
+// if(props.season === "Summer") {
+//   return (
+//     <Lake name="Lake Princess"/>
+//   )
+// } else if(props.season === "Winter") {
+//   return (
+//     <SkiResort name="Unicorn Mountain"/>
+//   )
+// }
+
+function App(props) {
+  return(
     <div>
-      {lakes.map(lake => 
-      <div key={lake.id}>
-        <h2>{lake.name}</h2>
-        <p>Accessed by {lake.trailhead}</p>
-        </div>)}
+      {props.season === "Summer" ? <Lake name="Lake Princess"/> : props.season === "Winter" ? <SkiResort name="Unicorn Mountain"/> : <h1>Come back in the winter or summer</h1>
+      }
     </div>
   )
 }
 
 
 ReactDOM.render(
-<App lakes={lakeList}/>,
+<App season="Winter "/>,
   document.getElementById('root')
 );
 
