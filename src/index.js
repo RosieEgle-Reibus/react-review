@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
+
 let Checkbox = () => {
-  let [checked, setChecked] = useState(false)  
+   let [checked, toggle] = useReducer(
+     checked => !checked, 
+     false)
+     
   return (
     <>
-      <input type="checkbox" value={checked} onChange={() => setChecked(checked = !checked)} />
+      <input type="checkbox" value={checked} onChange={toggle} />
       {checked ? "checked" : "not checked"}
     </>
   )
